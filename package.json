@@ -1,6 +1,6 @@
 {
   "name": "@signvoy/react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Official React SDK for the Signvoy e-signature API — embedded signing, hooks, and types",
   "license": "MIT",
   "author": "Signvoy Inc.",
@@ -40,7 +40,9 @@
   },
   "main": "./dist/src/index.js",
   "types": "./dist/src/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "sideEffects": false,
   "scripts": {
     "build": "tsc",
