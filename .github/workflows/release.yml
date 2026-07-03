@@ -1,0 +1,36 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    name: Build and publish to npm
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write  # OIDC trusted publishing — no stored npm token
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+
+      # OIDC trusted publishing requires npm >= 11.5.1, newer than the version
+      # bundled with Node 22. No stored NPM_TOKEN is needed with trusted publishing.
+      - name: Upgrade npm for trusted publishing
+        run: npm install -g npm@latest
+
+      - run: npm ci
+
+      - run: npm run build
+
+      - run: npm run test
+
+      - name: Publish to npm (OIDC trusted publishing)
+        run: npm publish --provenance --access public

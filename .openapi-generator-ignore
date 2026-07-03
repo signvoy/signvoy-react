@@ -1,0 +1,10 @@
+# Files listed here are never overwritten by openapi-generator.
+# Add any hand-authored files you want to protect from regeneration.
+
+src/
+package.json
+tsconfig.json
+README.md
+LICENSE
+CONTRIBUTING.md
+.github/

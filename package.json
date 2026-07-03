@@ -1,0 +1,54 @@
+{
+  "name": "@signvoy/react",
+  "version": "0.1.0",
+  "description": "Official React SDK for the Signvoy e-signature API — embedded signing, hooks, and types",
+  "license": "MIT",
+  "author": "Signvoy Inc.",
+  "homepage": "https://www.signvoy.com/developers/embed",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/signvoy/signvoy-react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/signvoy/signvoy-react/issues"
+  },
+  "keywords": [
+    "signvoy",
+    "react",
+    "esignature",
+    "e-signature",
+    "embedded-signing",
+    "pdf",
+    "signing",
+    "docusign-alternative",
+    "signing-api"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/src/index.js",
+      "types": "./dist/src/index.d.ts"
+    }
+  },
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "files": ["dist"],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "lint": "eslint src"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "react": "^18.3.0",
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
