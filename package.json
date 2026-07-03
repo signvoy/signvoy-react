@@ -15,13 +15,21 @@
   "keywords": [
     "signvoy",
     "react",
+    "react-component",
     "esignature",
     "e-signature",
+    "electronic-signature",
+    "digital-signature",
     "embedded-signing",
+    "embed",
+    "iframe",
     "pdf",
+    "pdf-signing",
     "signing",
+    "signing-api",
     "docusign-alternative",
-    "signing-api"
+    "sdk",
+    "typescript"
   ],
   "type": "module",
   "exports": {
