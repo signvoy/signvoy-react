@@ -98,6 +98,10 @@ All URIs are relative to *https://api.signvoy.com*
 *MCPApi* | [**mcpGrantsCreate**](docs/MCPApi.md#mcpgrantscreate) | **POST** /v1/mcp-grants | Authorise an OAuth client to call the MCP endpoint
 *MCPApi* | [**mcpGrantsList**](docs/MCPApi.md#mcpgrantslist) | **GET** /v1/mcp-grants | List active MCP grants for the current user
 *MCPApi* | [**mcpGrantsRevoke**](docs/MCPApi.md#mcpgrantsrevoke) | **DELETE** /v1/mcp-grants/{id} | Revoke an MCP grant
+*NotificationPreferencesApi* | [**notificationPreferencesGet**](docs/NotificationPreferencesApi.md#notificationpreferencesget) | **GET** /v1/users/me/notification-preferences | Get the current user\&#39;s notification preferences
+*NotificationPreferencesApi* | [**notificationPreferencesUpdate**](docs/NotificationPreferencesApi.md#notificationpreferencesupdate) | **PATCH** /v1/users/me/notification-preferences | Change notification preferences
+*NotificationPreferencesApi* | [**unsubscribePreview**](docs/NotificationPreferencesApi.md#unsubscribepreview) | **GET** /v1/notification-preferences/unsubscribe/preview | Describe what an unsubscribe token would turn off
+*NotificationPreferencesApi* | [**unsubscribeUnsubscribe**](docs/NotificationPreferencesApi.md#unsubscribeunsubscribe) | **POST** /v1/notification-preferences/unsubscribe | Unsubscribe from one email notification
 *NotificationsApi* | [**notificationsList**](docs/NotificationsApi.md#notificationslist) | **GET** /v1/notifications | List notifications for the current user
 *NotificationsApi* | [**notificationsMarkAllRead**](docs/NotificationsApi.md#notificationsmarkallread) | **POST** /v1/notifications/read-all | Mark all notifications as read
 *NotificationsApi* | [**notificationsMarkRead**](docs/NotificationsApi.md#notificationsmarkread) | **PATCH** /v1/notifications/{id}/read | Mark a notification as read
@@ -192,6 +196,7 @@ All URIs are relative to *https://api.signvoy.com*
 - [DocumentDtoPreviewPinsInner](docs/DocumentDtoPreviewPinsInner.md)
 - [DocumentDtoSendBlockersInner](docs/DocumentDtoSendBlockersInner.md)
 - [DocumentRecipientDto](docs/DocumentRecipientDto.md)
+- [EffectivePreferenceDto](docs/EffectivePreferenceDto.md)
 - [EmbedSessionResponseDto](docs/EmbedSessionResponseDto.md)
 - [ErrorResponseDto](docs/ErrorResponseDto.md)
 - [ErrorResponseDtoMessage](docs/ErrorResponseDtoMessage.md)
@@ -200,7 +205,10 @@ All URIs are relative to *https://api.signvoy.com*
 - [GalleryTemplateDto](docs/GalleryTemplateDto.md)
 - [HealthCheck200Response](docs/HealthCheck200Response.md)
 - [InviteMemberDto](docs/InviteMemberDto.md)
+- [NotificationDefinitionDto](docs/NotificationDefinitionDto.md)
 - [NotificationDto](docs/NotificationDto.md)
+- [PreferenceChangeDto](docs/PreferenceChangeDto.md)
+- [PreferencesResponseDto](docs/PreferencesResponseDto.md)
 - [ReminderSettingsDto](docs/ReminderSettingsDto.md)
 - [SaveDraftDto](docs/SaveDraftDto.md)
 - [SelectPlanDto](docs/SelectPlanDto.md)
@@ -209,9 +217,11 @@ All URIs are relative to *https://api.signvoy.com*
 - [TemplateVersionDto](docs/TemplateVersionDto.md)
 - [TemplateWithVersionsDto](docs/TemplateWithVersionsDto.md)
 - [UnreadCountDto](docs/UnreadCountDto.md)
+- [UnsubscribePreviewDto](docs/UnsubscribePreviewDto.md)
 - [UpdateContactDto](docs/UpdateContactDto.md)
 - [UpdateDocumentDto](docs/UpdateDocumentDto.md)
 - [UpdateMemberDto](docs/UpdateMemberDto.md)
+- [UpdatePreferencesDto](docs/UpdatePreferencesDto.md)
 - [UpdateSeatsDto](docs/UpdateSeatsDto.md)
 - [UpdateTemplateDto](docs/UpdateTemplateDto.md)
 - [UpdateUserDto](docs/UpdateUserDto.md)

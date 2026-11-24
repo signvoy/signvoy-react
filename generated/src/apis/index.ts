@@ -8,6 +8,7 @@ export * from './DocumentsApi';
 export * from './EmbedApi';
 export * from './HealthApi';
 export * from './MCPApi';
+export * from './NotificationPreferencesApi';
 export * from './NotificationsApi';
 export * from './SignaturesApi';
 export * from './SigningApi';
