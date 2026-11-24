@@ -34,6 +34,43 @@ import {
     UpdateWorkspaceDtoToJSON,
 } from '../models/UpdateWorkspaceDto';
 
+export interface WorkspaceBrandingGetAssetRequest {
+    /**
+     * Workspace UUID
+     */
+    id: string;
+    /**
+     * Which branding image
+     */
+    asset: WorkspaceBrandingGetAssetAssetEnum;
+}
+
+export interface WorkspaceBrandingRemoveAssetRequest {
+    /**
+     * Workspace UUID
+     */
+    id: string;
+    /**
+     * Which branding image
+     */
+    asset: WorkspaceBrandingRemoveAssetAssetEnum;
+}
+
+export interface WorkspaceBrandingUploadAssetRequest {
+    /**
+     * Workspace UUID
+     */
+    id: string;
+    /**
+     * Which branding image
+     */
+    asset: WorkspaceBrandingUploadAssetAssetEnum;
+    /**
+     * 
+     */
+    file: Blob;
+}
+
 export interface WorkspacesCreateRequest {
     /**
      * 
@@ -132,6 +169,212 @@ export interface WorkspacesUpdateMemberRequest {
  * 
  */
 export class WorkspacesApi extends runtime.BaseAPI {
+
+    /**
+     * Creates request options for workspaceBrandingGetAsset without sending the request
+     */
+    async workspaceBrandingGetAssetRequestOpts(requestParameters: WorkspaceBrandingGetAssetRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling workspaceBrandingGetAsset().'
+            );
+        }
+
+        if (requestParameters['asset'] == null) {
+            throw new runtime.RequiredError(
+                'asset',
+                'Required parameter "asset" was null or undefined when calling workspaceBrandingGetAsset().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/v1/workspaces/{id}/branding/{asset}`;
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{asset}', encodeURIComponent(String(requestParameters['asset'])));
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Public. Serves the logo or favicon shown to recipients. Cached as immutable; clients version the URL with `?v=`.
+     * Get a workspace branding image
+     */
+    async workspaceBrandingGetAssetRaw(requestParameters: WorkspaceBrandingGetAssetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.workspaceBrandingGetAssetRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Public. Serves the logo or favicon shown to recipients. Cached as immutable; clients version the URL with `?v=`.
+     * Get a workspace branding image
+     */
+    async workspaceBrandingGetAsset(requestParameters: WorkspaceBrandingGetAssetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.workspaceBrandingGetAssetRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Creates request options for workspaceBrandingRemoveAsset without sending the request
+     */
+    async workspaceBrandingRemoveAssetRequestOpts(requestParameters: WorkspaceBrandingRemoveAssetRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling workspaceBrandingRemoveAsset().'
+            );
+        }
+
+        if (requestParameters['asset'] == null) {
+            throw new runtime.RequiredError(
+                'asset',
+                'Required parameter "asset" was null or undefined when calling workspaceBrandingRemoveAsset().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("clerk-jwt", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/v1/workspaces/{id}/branding/{asset}`;
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{asset}', encodeURIComponent(String(requestParameters['asset'])));
+
+        return {
+            path: urlPath,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Owner/admin only.
+     * Remove a workspace branding image
+     */
+    async workspaceBrandingRemoveAssetRaw(requestParameters: WorkspaceBrandingRemoveAssetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.workspaceBrandingRemoveAssetRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Owner/admin only.
+     * Remove a workspace branding image
+     */
+    async workspaceBrandingRemoveAsset(requestParameters: WorkspaceBrandingRemoveAssetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.workspaceBrandingRemoveAssetRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Creates request options for workspaceBrandingUploadAsset without sending the request
+     */
+    async workspaceBrandingUploadAssetRequestOpts(requestParameters: WorkspaceBrandingUploadAssetRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling workspaceBrandingUploadAsset().'
+            );
+        }
+
+        if (requestParameters['asset'] == null) {
+            throw new runtime.RequiredError(
+                'asset',
+                'Required parameter "asset" was null or undefined when calling workspaceBrandingUploadAsset().'
+            );
+        }
+
+        if (requestParameters['file'] == null) {
+            throw new runtime.RequiredError(
+                'file',
+                'Required parameter "file" was null or undefined when calling workspaceBrandingUploadAsset().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("clerk-jwt", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+        const consumes: runtime.Consume[] = [
+            { contentType: 'multipart/form-data' },
+        ];
+        // @ts-ignore: canConsumeForm may be unused
+        const canConsumeForm = runtime.canConsumeForm(consumes);
+
+        let formParams: { append(param: string, value: any): any };
+        let useForm = false;
+        // use FormData to transmit files using content-type "multipart/form-data"
+        useForm = canConsumeForm;
+        if (useForm) {
+            formParams = new FormData();
+        } else {
+            formParams = new URLSearchParams();
+        }
+
+        if (requestParameters['file'] != null) {
+            formParams.append('file', requestParameters['file'] as any);
+        }
+
+
+        let urlPath = `/v1/workspaces/{id}/branding/{asset}`;
+        urlPath = urlPath.replace('{id}', encodeURIComponent(String(requestParameters['id'])));
+        urlPath = urlPath.replace('{asset}', encodeURIComponent(String(requestParameters['asset'])));
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: formParams,
+        };
+    }
+
+    /**
+     * Replaces the logo (PNG, JPEG, WebP, SVG) or favicon (PNG, ICO, SVG). Up to 2 MB. Owner/admin only; requires a plan with custom branding.
+     * Upload a workspace branding image
+     */
+    async workspaceBrandingUploadAssetRaw(requestParameters: WorkspaceBrandingUploadAssetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.workspaceBrandingUploadAssetRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Replaces the logo (PNG, JPEG, WebP, SVG) or favicon (PNG, ICO, SVG). Up to 2 MB. Owner/admin only; requires a plan with custom branding.
+     * Upload a workspace branding image
+     */
+    async workspaceBrandingUploadAsset(requestParameters: WorkspaceBrandingUploadAssetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.workspaceBrandingUploadAssetRaw(requestParameters, initOverrides);
+    }
 
     /**
      * Creates request options for workspacesCreate without sending the request
@@ -776,3 +1019,28 @@ export class WorkspacesApi extends runtime.BaseAPI {
     }
 
 }
+
+/**
+ * @export
+ */
+export const WorkspaceBrandingGetAssetAssetEnum = {
+    LOGO: 'logo',
+    FAVICON: 'favicon',
+} as const;
+export type WorkspaceBrandingGetAssetAssetEnum = typeof WorkspaceBrandingGetAssetAssetEnum[keyof typeof WorkspaceBrandingGetAssetAssetEnum];
+/**
+ * @export
+ */
+export const WorkspaceBrandingRemoveAssetAssetEnum = {
+    LOGO: 'logo',
+    FAVICON: 'favicon',
+} as const;
+export type WorkspaceBrandingRemoveAssetAssetEnum = typeof WorkspaceBrandingRemoveAssetAssetEnum[keyof typeof WorkspaceBrandingRemoveAssetAssetEnum];
+/**
+ * @export
+ */
+export const WorkspaceBrandingUploadAssetAssetEnum = {
+    LOGO: 'logo',
+    FAVICON: 'favicon',
+} as const;
+export type WorkspaceBrandingUploadAssetAssetEnum = typeof WorkspaceBrandingUploadAssetAssetEnum[keyof typeof WorkspaceBrandingUploadAssetAssetEnum];

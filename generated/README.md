@@ -142,6 +142,9 @@ All URIs are relative to *https://api.signvoy.com*
 *WebhooksApi* | [**webhooksRetryDelivery**](docs/WebhooksApi.md#webhooksretrydelivery) | **POST** /v1/webhooks/{id}/deliveries/{deliveryId}/retry | Manually retry a failed delivery
 *WebhooksApi* | [**webhooksRotateSecret**](docs/WebhooksApi.md#webhooksrotatesecret) | **POST** /v1/webhooks/{id}/rotate-secret | Rotate the signing secret
 *WebhooksApi* | [**webhooksUpdate**](docs/WebhooksApi.md#webhooksupdate) | **PATCH** /v1/webhooks/{id} | Update a webhook endpoint
+*WorkspacesApi* | [**workspaceBrandingGetAsset**](docs/WorkspacesApi.md#workspacebrandinggetasset) | **GET** /v1/workspaces/{id}/branding/{asset} | Get a workspace branding image
+*WorkspacesApi* | [**workspaceBrandingRemoveAsset**](docs/WorkspacesApi.md#workspacebrandingremoveasset) | **DELETE** /v1/workspaces/{id}/branding/{asset} | Remove a workspace branding image
+*WorkspacesApi* | [**workspaceBrandingUploadAsset**](docs/WorkspacesApi.md#workspacebrandinguploadasset) | **POST** /v1/workspaces/{id}/branding/{asset} | Upload a workspace branding image
 *WorkspacesApi* | [**workspacesCreate**](docs/WorkspacesApi.md#workspacescreate) | **POST** /v1/workspaces | Create a new workspace
 *WorkspacesApi* | [**workspacesFindOne**](docs/WorkspacesApi.md#workspacesfindone) | **GET** /v1/workspaces/{id} | Get workspace by ID
 *WorkspacesApi* | [**workspacesInvite**](docs/WorkspacesApi.md#workspacesinvite) | **POST** /v1/workspaces/{id}/members | Invite member to workspace
@@ -186,6 +189,7 @@ All URIs are relative to *https://api.signvoy.com*
 - [CreatedApiKeyDto](docs/CreatedApiKeyDto.md)
 - [DeclineDto](docs/DeclineDto.md)
 - [DocumentDto](docs/DocumentDto.md)
+- [DocumentDtoPreviewPinsInner](docs/DocumentDtoPreviewPinsInner.md)
 - [DocumentDtoSendBlockersInner](docs/DocumentDtoSendBlockersInner.md)
 - [DocumentRecipientDto](docs/DocumentRecipientDto.md)
 - [EmbedSessionResponseDto](docs/EmbedSessionResponseDto.md)

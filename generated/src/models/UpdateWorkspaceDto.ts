@@ -27,6 +27,14 @@ export interface UpdateWorkspaceDto {
      * Updated URL-friendly slug. Must be lowercase alphanumeric with optional hyphens.
      */
     slug?: string;
+    /**
+     * Name shown to recipients on signing pages in place of Signvoy. `null` clears it. Requires a plan with custom branding.
+     */
+    brandName?: string | null;
+    /**
+     * Brand color as lowercase `#rrggbb`. `null` clears it. Requires a plan with custom branding.
+     */
+    brandColor?: string | null;
 }
 
 /**
@@ -48,6 +56,8 @@ export function UpdateWorkspaceDtoFromJSONTyped(json: any, ignoreDiscriminator: 
         
         'name': json['name'] == null ? undefined : json['name'],
         'slug': json['slug'] == null ? undefined : json['slug'],
+        'brandName': json['brandName'] === undefined ? undefined : json['brandName'] === null ? null : json['brandName'],
+        'brandColor': json['brandColor'] === undefined ? undefined : json['brandColor'] === null ? null : json['brandColor'],
     };
 }
 
@@ -64,6 +74,8 @@ export function UpdateWorkspaceDtoToJSONTyped(value?: UpdateWorkspaceDto | null,
         
         'name': value['name'],
         'slug': value['slug'],
+        'brandName': value['brandName'],
+        'brandColor': value['brandColor'],
     };
 }
 

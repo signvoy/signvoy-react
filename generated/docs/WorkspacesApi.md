@@ -4,6 +4,9 @@ All URIs are relative to *https://api.signvoy.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**workspaceBrandingGetAsset**](WorkspacesApi.md#workspacebrandinggetasset) | **GET** /v1/workspaces/{id}/branding/{asset} | Get a workspace branding image |
+| [**workspaceBrandingRemoveAsset**](WorkspacesApi.md#workspacebrandingremoveasset) | **DELETE** /v1/workspaces/{id}/branding/{asset} | Remove a workspace branding image |
+| [**workspaceBrandingUploadAsset**](WorkspacesApi.md#workspacebrandinguploadasset) | **POST** /v1/workspaces/{id}/branding/{asset} | Upload a workspace branding image |
 | [**workspacesCreate**](WorkspacesApi.md#workspacescreate) | **POST** /v1/workspaces | Create a new workspace |
 | [**workspacesFindOne**](WorkspacesApi.md#workspacesfindone) | **GET** /v1/workspaces/{id} | Get workspace by ID |
 | [**workspacesInvite**](WorkspacesApi.md#workspacesinvite) | **POST** /v1/workspaces/{id}/members | Invite member to workspace |
@@ -16,6 +19,231 @@ All URIs are relative to *https://api.signvoy.com*
 | [**workspacesUpdate**](WorkspacesApi.md#workspacesupdate) | **PATCH** /v1/workspaces/{id} | Update workspace |
 | [**workspacesUpdateMember**](WorkspacesApi.md#workspacesupdatemember) | **PATCH** /v1/workspaces/{id}/members/{userId} | Update member role |
 
+
+
+## workspaceBrandingGetAsset
+
+> workspaceBrandingGetAsset(id, asset)
+
+Get a workspace branding image
+
+Public. Serves the logo or favicon shown to recipients. Cached as immutable; clients version the URL with &#x60;?v&#x3D;&#x60;.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  WorkspacesApi,
+} from '@signvoy/react';
+import type { WorkspaceBrandingGetAssetRequest } from '@signvoy/react';
+
+async function example() {
+  console.log("🚀 Testing @signvoy/react SDK...");
+  const api = new WorkspacesApi();
+
+  const body = {
+    // string | Workspace UUID
+    id: 38400000-8cf0-11bd-b23e-10b96e4ef00d,
+    // 'logo' | 'favicon' | Which branding image
+    asset: asset_example,
+  } satisfies WorkspaceBrandingGetAssetRequest;
+
+  try {
+    const data = await api.workspaceBrandingGetAsset(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `string` | Workspace UUID | [Defaults to `undefined`] |
+| **asset** | `logo`, `favicon` | Which branding image | [Defaults to `undefined`] [Enum: logo, favicon] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Image bytes |  -  |
+| **404** | No image configured |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## workspaceBrandingRemoveAsset
+
+> workspaceBrandingRemoveAsset(id, asset)
+
+Remove a workspace branding image
+
+Owner/admin only.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  WorkspacesApi,
+} from '@signvoy/react';
+import type { WorkspaceBrandingRemoveAssetRequest } from '@signvoy/react';
+
+async function example() {
+  console.log("🚀 Testing @signvoy/react SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: clerk-jwt
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new WorkspacesApi(config);
+
+  const body = {
+    // string | Workspace UUID
+    id: 38400000-8cf0-11bd-b23e-10b96e4ef00d,
+    // 'logo' | 'favicon' | Which branding image
+    asset: asset_example,
+  } satisfies WorkspaceBrandingRemoveAssetRequest;
+
+  try {
+    const data = await api.workspaceBrandingRemoveAsset(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `string` | Workspace UUID | [Defaults to `undefined`] |
+| **asset** | `logo`, `favicon` | Which branding image | [Defaults to `undefined`] [Enum: logo, favicon] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[clerk-jwt](../README.md#clerk-jwt)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Image removed; returns the workspace branding |  -  |
+| **403** | Forbidden - Insufficient permissions |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## workspaceBrandingUploadAsset
+
+> workspaceBrandingUploadAsset(id, asset, file)
+
+Upload a workspace branding image
+
+Replaces the logo (PNG, JPEG, WebP, SVG) or favicon (PNG, ICO, SVG). Up to 2 MB. Owner/admin only; requires a plan with custom branding.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  WorkspacesApi,
+} from '@signvoy/react';
+import type { WorkspaceBrandingUploadAssetRequest } from '@signvoy/react';
+
+async function example() {
+  console.log("🚀 Testing @signvoy/react SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: clerk-jwt
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new WorkspacesApi(config);
+
+  const body = {
+    // string | Workspace UUID
+    id: 38400000-8cf0-11bd-b23e-10b96e4ef00d,
+    // 'logo' | 'favicon' | Which branding image
+    asset: asset_example,
+    // Blob
+    file: BINARY_DATA_HERE,
+  } satisfies WorkspaceBrandingUploadAssetRequest;
+
+  try {
+    const data = await api.workspaceBrandingUploadAsset(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `string` | Workspace UUID | [Defaults to `undefined`] |
+| **asset** | `logo`, `favicon` | Which branding image | [Defaults to `undefined`] [Enum: logo, favicon] |
+| **file** | `Blob` |  | [Defaults to `undefined`] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+[clerk-jwt](../README.md#clerk-jwt)
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Image stored; returns the workspace branding |  -  |
+| **402** | Plan does not include custom branding |  -  |
+| **403** | Forbidden - Insufficient permissions |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
 ## workspacesCreate

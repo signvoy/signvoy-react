@@ -29,6 +29,7 @@ export * from './CreateWorkspaceDto';
 export * from './CreatedApiKeyDto';
 export * from './DeclineDto';
 export * from './DocumentDto';
+export * from './DocumentDtoPreviewPinsInner';
 export * from './DocumentDtoSendBlockersInner';
 export * from './DocumentRecipientDto';
 export * from './EmbedSessionResponseDto';

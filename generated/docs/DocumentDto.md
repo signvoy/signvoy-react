@@ -29,6 +29,7 @@ Name | Type
 `reminderCount` | number
 `lastReminderAt` | number
 `recipients` | [Array&lt;DocumentRecipientDto&gt;](DocumentRecipientDto.md)
+`previewPins` | [Array&lt;DocumentDtoPreviewPinsInner&gt;](DocumentDtoPreviewPinsInner.md)
 `sendBlockers` | [Array&lt;DocumentDtoSendBlockersInner&gt;](DocumentDtoSendBlockersInner.md)
 
 ## Example
@@ -61,6 +62,7 @@ const example = {
   "reminderCount": null,
   "lastReminderAt": null,
   "recipients": null,
+  "previewPins": null,
   "sendBlockers": null,
 } satisfies DocumentDto
 

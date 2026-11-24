@@ -8,6 +8,8 @@ Name | Type
 ------------ | -------------
 `name` | string
 `slug` | string
+`brandName` | string
+`brandColor` | string
 
 ## Example
 
@@ -18,6 +20,8 @@ import type { UpdateWorkspaceDto } from '@signvoy/react'
 const example = {
   "name": Updated Corporation Name,
   "slug": updated-corp,
+  "brandName": Acme Inc.,
+  "brandColor": #214e92,
 } satisfies UpdateWorkspaceDto
 
 console.log(example)

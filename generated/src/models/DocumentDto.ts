@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { DocumentDtoPreviewPinsInner } from './DocumentDtoPreviewPinsInner';
+import {
+    DocumentDtoPreviewPinsInnerFromJSON,
+    DocumentDtoPreviewPinsInnerFromJSONTyped,
+    DocumentDtoPreviewPinsInnerToJSON,
+    DocumentDtoPreviewPinsInnerToJSONTyped,
+} from './DocumentDtoPreviewPinsInner';
 import type { DocumentRecipientDto } from './DocumentRecipientDto';
 import {
     DocumentRecipientDtoFromJSON,
@@ -127,6 +134,10 @@ export interface DocumentDto {
      */
     recipients: Array<DocumentRecipientDto>;
     /**
+     * Positions (percent of page) of up to 8 fields on page 1 of the pinned template version, for list thumbnails. `recipientKey` matches `recipients[].roleKey`. Only returned by the list endpoint.
+     */
+    previewPins?: Array<DocumentDtoPreviewPinsInner>;
+    /**
      * Reasons a draft cannot yet be sent. Empty array when the document is ready to send or is not in draft state.
      */
     sendBlockers: Array<DocumentDtoSendBlockersInner>;
@@ -212,6 +223,7 @@ export function DocumentDtoFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'reminderCount': json['reminderCount'],
         'lastReminderAt': json['lastReminderAt'] == null ? undefined : json['lastReminderAt'],
         'recipients': ((json['recipients'] as Array<any>).map(DocumentRecipientDtoFromJSON)),
+        'previewPins': json['previewPins'] == null ? undefined : ((json['previewPins'] as Array<any>).map(DocumentDtoPreviewPinsInnerFromJSON)),
         'sendBlockers': ((json['sendBlockers'] as Array<any>).map(DocumentDtoSendBlockersInnerFromJSON)),
     };
 }
@@ -250,6 +262,7 @@ export function DocumentDtoToJSONTyped(value?: DocumentDto | null, ignoreDiscrim
         'reminderCount': value['reminderCount'],
         'lastReminderAt': value['lastReminderAt'],
         'recipients': ((value['recipients'] as Array<any>).map(DocumentRecipientDtoToJSON)),
+        'previewPins': value['previewPins'] == null ? undefined : ((value['previewPins'] as Array<any>).map(DocumentDtoPreviewPinsInnerToJSON)),
         'sendBlockers': ((value['sendBlockers'] as Array<any>).map(DocumentDtoSendBlockersInnerToJSON)),
     };
 }
