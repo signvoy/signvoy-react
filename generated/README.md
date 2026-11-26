@@ -95,6 +95,18 @@ All URIs are relative to *https://api.signvoy.com*
 *DocumentsApi* | [**documentsVoidDoc**](docs/DocumentsApi.md#documentsvoiddoc) | **POST** /v1/documents/{id}/void | Void document
 *EmbedApi* | [**embedCreateSession**](docs/EmbedApi.md#embedcreatesession) | **POST** /v1/embed/session | Create an embed session
 *HealthApi* | [**healthCheck**](docs/HealthApi.md#healthcheck) | **GET** /v1/health | Health check
+*IntegrationsApi* | [**integrationsComplete**](docs/IntegrationsApi.md#integrationscomplete) | **POST** /v1/integrations/oauth/complete | Finish connecting a provider
+*IntegrationsApi* | [**integrationsConnect**](docs/IntegrationsApi.md#integrationsconnect) | **POST** /v1/integrations/{provider}/connect | Start connecting a provider
+*IntegrationsApi* | [**integrationsCreateBinding**](docs/IntegrationsApi.md#integrationscreatebinding) | **POST** /v1/integrations/bindings | Create a binding
+*IntegrationsApi* | [**integrationsCreateDrivePickerSession**](docs/IntegrationsApi.md#integrationscreatedrivepickersession) | **POST** /v1/integrations/connections/{id}/google-drive/picker | Open the Google Drive folder picker
+*IntegrationsApi* | [**integrationsDeleteBinding**](docs/IntegrationsApi.md#integrationsdeletebinding) | **DELETE** /v1/integrations/bindings/{id} | Delete a binding
+*IntegrationsApi* | [**integrationsDisconnect**](docs/IntegrationsApi.md#integrationsdisconnect) | **DELETE** /v1/integrations/connections/{id} | Disconnect a provider
+*IntegrationsApi* | [**integrationsList**](docs/IntegrationsApi.md#integrationslist) | **GET** /v1/integrations | List providers with their connection and bindings
+*IntegrationsApi* | [**integrationsListJobs**](docs/IntegrationsApi.md#integrationslistjobs) | **GET** /v1/integrations/jobs | List recent integration jobs
+*IntegrationsApi* | [**integrationsListSlackChannels**](docs/IntegrationsApi.md#integrationslistslackchannels) | **GET** /v1/integrations/connections/{id}/slack/channels | List Slack channels the connection can post to
+*IntegrationsApi* | [**integrationsRetryJob**](docs/IntegrationsApi.md#integrationsretryjob) | **POST** /v1/integrations/jobs/{id}/retry | Retry a job
+*IntegrationsApi* | [**integrationsTestBinding**](docs/IntegrationsApi.md#integrationstestbinding) | **POST** /v1/integrations/bindings/{id}/test | Test a binding
+*IntegrationsApi* | [**integrationsUpdateBinding**](docs/IntegrationsApi.md#integrationsupdatebinding) | **PATCH** /v1/integrations/bindings/{id} | Update a binding
 *MCPApi* | [**mcpGrantsCreate**](docs/MCPApi.md#mcpgrantscreate) | **POST** /v1/mcp-grants | Authorise an OAuth client to call the MCP endpoint
 *MCPApi* | [**mcpGrantsList**](docs/MCPApi.md#mcpgrantslist) | **GET** /v1/mcp-grants | List active MCP grants for the current user
 *MCPApi* | [**mcpGrantsRevoke**](docs/MCPApi.md#mcpgrantsrevoke) | **DELETE** /v1/mcp-grants/{id} | Revoke an MCP grant
@@ -176,6 +188,8 @@ All URIs are relative to *https://api.signvoy.com*
 - [BillingSummaryDto](docs/BillingSummaryDto.md)
 - [BillingWorkspacesDto](docs/BillingWorkspacesDto.md)
 - [CheckoutReceiptDto](docs/CheckoutReceiptDto.md)
+- [CompleteIntegrationConnectDto](docs/CompleteIntegrationConnectDto.md)
+- [CompleteIntegrationConnectResponseDto](docs/CompleteIntegrationConnectResponseDto.md)
 - [ContactDocumentDto](docs/ContactDocumentDto.md)
 - [ContactDto](docs/ContactDto.md)
 - [ContactListDto](docs/ContactListDto.md)
@@ -185,6 +199,7 @@ All URIs are relative to *https://api.signvoy.com*
 - [CreateDocumentDto](docs/CreateDocumentDto.md)
 - [CreateDocumentRecipientDto](docs/CreateDocumentRecipientDto.md)
 - [CreateEmbedSessionDto](docs/CreateEmbedSessionDto.md)
+- [CreateIntegrationBindingDto](docs/CreateIntegrationBindingDto.md)
 - [CreateTemplateDto](docs/CreateTemplateDto.md)
 - [CreateTemplateResponseDto](docs/CreateTemplateResponseDto.md)
 - [CreateUserSignatureDto](docs/CreateUserSignatureDto.md)
@@ -203,7 +218,13 @@ All URIs are relative to *https://api.signvoy.com*
 - [ExpirySettingsDto](docs/ExpirySettingsDto.md)
 - [GalleryRecipientDto](docs/GalleryRecipientDto.md)
 - [GalleryTemplateDto](docs/GalleryTemplateDto.md)
+- [GoogleDrivePickerSessionDto](docs/GoogleDrivePickerSessionDto.md)
 - [HealthCheck200Response](docs/HealthCheck200Response.md)
+- [IntegrationBindingDto](docs/IntegrationBindingDto.md)
+- [IntegrationConnectionDto](docs/IntegrationConnectionDto.md)
+- [IntegrationJobDto](docs/IntegrationJobDto.md)
+- [IntegrationProviderInfoDto](docs/IntegrationProviderInfoDto.md)
+- [IntegrationTestResultDto](docs/IntegrationTestResultDto.md)
 - [InviteMemberDto](docs/InviteMemberDto.md)
 - [NotificationDefinitionDto](docs/NotificationDefinitionDto.md)
 - [NotificationDto](docs/NotificationDto.md)
@@ -212,6 +233,9 @@ All URIs are relative to *https://api.signvoy.com*
 - [ReminderSettingsDto](docs/ReminderSettingsDto.md)
 - [SaveDraftDto](docs/SaveDraftDto.md)
 - [SelectPlanDto](docs/SelectPlanDto.md)
+- [SlackChannelDto](docs/SlackChannelDto.md)
+- [StartIntegrationConnectDto](docs/StartIntegrationConnectDto.md)
+- [StartIntegrationConnectResponseDto](docs/StartIntegrationConnectResponseDto.md)
 - [SubmitSigningDto](docs/SubmitSigningDto.md)
 - [TemplateUrlResponseDto](docs/TemplateUrlResponseDto.md)
 - [TemplateVersionDto](docs/TemplateVersionDto.md)
@@ -220,6 +244,7 @@ All URIs are relative to *https://api.signvoy.com*
 - [UnsubscribePreviewDto](docs/UnsubscribePreviewDto.md)
 - [UpdateContactDto](docs/UpdateContactDto.md)
 - [UpdateDocumentDto](docs/UpdateDocumentDto.md)
+- [UpdateIntegrationBindingDto](docs/UpdateIntegrationBindingDto.md)
 - [UpdateMemberDto](docs/UpdateMemberDto.md)
 - [UpdatePreferencesDto](docs/UpdatePreferencesDto.md)
 - [UpdateSeatsDto](docs/UpdateSeatsDto.md)

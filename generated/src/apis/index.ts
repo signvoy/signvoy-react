@@ -7,6 +7,7 @@ export * from './ContactsApi';
 export * from './DocumentsApi';
 export * from './EmbedApi';
 export * from './HealthApi';
+export * from './IntegrationsApi';
 export * from './MCPApi';
 export * from './NotificationPreferencesApi';
 export * from './NotificationsApi';

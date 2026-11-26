@@ -17,6 +17,8 @@ docs/BillingSeatsDto.md
 docs/BillingSummaryDto.md
 docs/BillingWorkspacesDto.md
 docs/CheckoutReceiptDto.md
+docs/CompleteIntegrationConnectDto.md
+docs/CompleteIntegrationConnectResponseDto.md
 docs/ContactDocumentDto.md
 docs/ContactDto.md
 docs/ContactListDto.md
@@ -27,6 +29,7 @@ docs/CreateContactDto.md
 docs/CreateDocumentDto.md
 docs/CreateDocumentRecipientDto.md
 docs/CreateEmbedSessionDto.md
+docs/CreateIntegrationBindingDto.md
 docs/CreateTemplateDto.md
 docs/CreateTemplateResponseDto.md
 docs/CreateUserSignatureDto.md
@@ -47,8 +50,15 @@ docs/ErrorResponseDtoMessage.md
 docs/ExpirySettingsDto.md
 docs/GalleryRecipientDto.md
 docs/GalleryTemplateDto.md
+docs/GoogleDrivePickerSessionDto.md
 docs/HealthApi.md
 docs/HealthCheck200Response.md
+docs/IntegrationBindingDto.md
+docs/IntegrationConnectionDto.md
+docs/IntegrationJobDto.md
+docs/IntegrationProviderInfoDto.md
+docs/IntegrationTestResultDto.md
+docs/IntegrationsApi.md
 docs/InviteMemberDto.md
 docs/MCPApi.md
 docs/NotificationDefinitionDto.md
@@ -62,6 +72,9 @@ docs/SaveDraftDto.md
 docs/SelectPlanDto.md
 docs/SignaturesApi.md
 docs/SigningApi.md
+docs/SlackChannelDto.md
+docs/StartIntegrationConnectDto.md
+docs/StartIntegrationConnectResponseDto.md
 docs/SubmissionsApi.md
 docs/SubmitSigningDto.md
 docs/TemplateGalleryApi.md
@@ -74,6 +87,7 @@ docs/UnreadCountDto.md
 docs/UnsubscribePreviewDto.md
 docs/UpdateContactDto.md
 docs/UpdateDocumentDto.md
+docs/UpdateIntegrationBindingDto.md
 docs/UpdateMemberDto.md
 docs/UpdatePreferencesDto.md
 docs/UpdateSeatsDto.md
@@ -100,6 +114,7 @@ src/apis/ContactsApi.ts
 src/apis/DocumentsApi.ts
 src/apis/EmbedApi.ts
 src/apis/HealthApi.ts
+src/apis/IntegrationsApi.ts
 src/apis/MCPApi.ts
 src/apis/NotificationPreferencesApi.ts
 src/apis/NotificationsApi.ts
@@ -126,6 +141,8 @@ src/models/BillingSeatsDto.ts
 src/models/BillingSummaryDto.ts
 src/models/BillingWorkspacesDto.ts
 src/models/CheckoutReceiptDto.ts
+src/models/CompleteIntegrationConnectDto.ts
+src/models/CompleteIntegrationConnectResponseDto.ts
 src/models/ContactDocumentDto.ts
 src/models/ContactDto.ts
 src/models/ContactListDto.ts
@@ -135,6 +152,7 @@ src/models/CreateContactDto.ts
 src/models/CreateDocumentDto.ts
 src/models/CreateDocumentRecipientDto.ts
 src/models/CreateEmbedSessionDto.ts
+src/models/CreateIntegrationBindingDto.ts
 src/models/CreateTemplateDto.ts
 src/models/CreateTemplateResponseDto.ts
 src/models/CreateUserSignatureDto.ts
@@ -153,7 +171,13 @@ src/models/ErrorResponseDtoMessage.ts
 src/models/ExpirySettingsDto.ts
 src/models/GalleryRecipientDto.ts
 src/models/GalleryTemplateDto.ts
+src/models/GoogleDrivePickerSessionDto.ts
 src/models/HealthCheck200Response.ts
+src/models/IntegrationBindingDto.ts
+src/models/IntegrationConnectionDto.ts
+src/models/IntegrationJobDto.ts
+src/models/IntegrationProviderInfoDto.ts
+src/models/IntegrationTestResultDto.ts
 src/models/InviteMemberDto.ts
 src/models/NotificationDefinitionDto.ts
 src/models/NotificationDto.ts
@@ -162,6 +186,9 @@ src/models/PreferencesResponseDto.ts
 src/models/ReminderSettingsDto.ts
 src/models/SaveDraftDto.ts
 src/models/SelectPlanDto.ts
+src/models/SlackChannelDto.ts
+src/models/StartIntegrationConnectDto.ts
+src/models/StartIntegrationConnectResponseDto.ts
 src/models/SubmitSigningDto.ts
 src/models/TemplateUrlResponseDto.ts
 src/models/TemplateVersionDto.ts
@@ -170,6 +197,7 @@ src/models/UnreadCountDto.ts
 src/models/UnsubscribePreviewDto.ts
 src/models/UpdateContactDto.ts
 src/models/UpdateDocumentDto.ts
+src/models/UpdateIntegrationBindingDto.ts
 src/models/UpdateMemberDto.ts
 src/models/UpdatePreferencesDto.ts
 src/models/UpdateSeatsDto.ts
